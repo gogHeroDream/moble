@@ -24,12 +24,15 @@ export default {
       "id_test_video",
       {
         m3u8: this.src, //请替换成实际可用的播放地址
+        m3u8_hd: this.src,
+        m3u8_sd: this.src,
         // autoplay: true, //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
         poster: { style: "cover", src: "/img/liangwei.jpg" },
-        live: true,
+        // live: true,
         x5_player: true,
         x5_type: "h5",
         x5_fullscreen: true,
+        x5_orientation: 2,
         volume: 0.6,
         // controls: 'none',
         systemFullscreen: true,
@@ -38,12 +41,31 @@ export default {
         height: "320" //视频的显示高度，请尽量使用视频分辨率高度
       },
       function(player) {
-        player.addEventListener("seeked", event => {
+        console.log(player);
+        player.listener("seeked", event => {
           console.log("Video found the playback position it was looking for.");
+        });
+        player.listener("pause", event => {
+          console.log(
+            "The Boolean paused property is now true. Either the " +
+              "pause() method was called or the autoplay attribute was toggled."
+          );
         });
         // player.seek(20)
       }
     );
+    const videoeEl = player.el.querySelector("video");
+    // console.log(el);
+    videoeEl.addEventListener("pause", event => {
+      console.log(
+        "The Boolean paused property is now true. Either the " +
+          "pause() method was called or the autoplay attribute was toggled."
+      );
+    });
+
+    videoeEl.addEventListener("seeked", event => {
+      console.log("Video found the playback position it was looking for.");
+    });
     // console.log(TcPlayer);
 
     // alert(typeof WeixinJSBridge)
