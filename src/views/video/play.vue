@@ -2,7 +2,9 @@
   <div class="play">
     <h5>播放器测试几个字啊呀一二三四五六七八九十</h5>
     <!-- <div class="prism-player" id="J_prismPlayer"></div> -->
-    <div id="id_test_video" style="width:100%; height:auto;"></div>
+    <div class="video-div">
+      <div id="id_test_video" style="width:100%; height:auto;"></div>
+    </div>
   </div>
 </template>
 
@@ -28,17 +30,17 @@ export default {
         m3u8_sd: this.src,
         // autoplay: true, //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
         poster: { style: "cover", src: "/img/liangwei.jpg" },
-        // live: true,
+        live: true,
         x5_player: true,
         x5_type: "h5",
         x5_fullscreen: true,
         x5_orientation: 2,
         volume: 0.6,
         // controls: 'none',
-        systemFullscreen: true,
+        // systemFullscreen: true,
         pausePosterEnabled: false,
         width: "100%", //视频的显示宽度，请尽量使用视频分辨率宽度
-        height: "320" //视频的显示高度，请尽量使用视频分辨率高度
+        height: "100%" //视频的显示高度，请尽量使用视频分辨率高度
       },
       function(player) {
         console.log(player);
@@ -64,6 +66,7 @@ export default {
     });
 
     videoeEl.addEventListener("seeked", event => {
+      alert(player.currentTime());
       console.log("Video found the playback position it was looking for.");
     });
     // console.log(TcPlayer);
@@ -92,11 +95,19 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$q: 75;
 .play {
   h5 {
     font-size: 0.5rem;
     line-height: 1rem;
     background: #eee;
+  }
+}
+.video-div {
+  width: 10rem;
+  height: 422rem / $q;
+  #id_test_video {
+    height: 100%;
   }
 }
 </style>
