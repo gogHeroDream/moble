@@ -16,23 +16,27 @@ export default {
   data() {
     return {
       play: "",
-      src:
-        "https://ccm2cdn.open.com.cn/testyf/TM/TEST/2019/1216/VEiqrieTEST20191216174809651.mp4?Expires=3154328628&OSSAccessKeyId=81kgc0VJPbZ4WnpN&Signature=DhNqJT6ZErgCC3k8cgtCPVWWxzI%3D"
+      src:"https://ccm2cdn.open.com.cn/testyf/TM/TEST/2019/1216/VEiqrieTEST20191216174809651.mp4?Expires=3154328628&OSSAccessKeyId=81kgc0VJPbZ4WnpN&Signature=DhNqJT6ZErgCC3k8cgtCPVWWxzI%3D",
+      src1: "https://ccm2cdn.open.com.cn/testyf/TM/TEST/2019/1216/VEiqrieTEST20191216174809651.mp4?Expires=3154480227&OSSAccessKeyId=81kgc0VJPbZ4WnpN&Signature=KqCanbwzzgPRBCE3EUOnhAKBeOY%3D",
+      src2: "https://ccm2cdn.open.com.cn/testyf/TM/TEST/2019/1216/VEpbgmuTEST20191216174809852.mp4?Expires=3154480227&OSSAccessKeyId=81kgc0VJPbZ4WnpN&Signature=IE8EOqepKlliL81J7wdAHmz1GV8%3D",
+      src3: "https://ccm2cdn.open.com.cn/testyf/TM/TEST/2019/1216/VEyizdtTEST20191216174809720.mp4?Expires=3154480227&OSSAccessKeyId=81kgc0VJPbZ4WnpN&Signature=WVdPhNnjjcfKTp1C%2FP7WawtoCoo%3D",
+      src4: "https://ccm2cdn.open.com.cn/testyf/TM/TEST/2019/1216/VErflhcTEST20191216174809908.mp4?Expires=3154480227&OSSAccessKeyId=81kgc0VJPbZ4WnpN&Signature=4x2g9prQnwsSq%2FVSvc%2BKfznespk%3D",
     };
   },
   mounted() {
     // console.log(Aliplayer);
+    this.src2= 'http://10.98.36.43:8080/img/cs.m3u8'
     var player = new TcPlayer(
       "id_test_video",
       {
-        m3u8: this.src, //请替换成实际可用的播放地址
-        m3u8_hd: this.src,
-        m3u8_sd: this.src,
+        m3u8: this.src1, //请替换成实际可用的播放地址
+        m3u8_hd: this.src2,
+        m3u8_sd: this.src3,
         // autoplay: true, //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
         poster: { style: "cover", src: "/img/liangwei.jpg" },
-        live: true,
+        // live: true,
         x5_player: true,
-        x5_type: "h5",
+        // x5_type: "h5",
         x5_fullscreen: true,
         x5_orientation: 2,
         volume: 0.6,
@@ -57,6 +61,7 @@ export default {
       }
     );
     const videoeEl = player.el.querySelector("video");
+    videoeEl.muted=true;
     // console.log(el);
     videoeEl.addEventListener("pause", event => {
       console.log(
@@ -67,6 +72,7 @@ export default {
 
     videoeEl.addEventListener("seeked", event => {
       alert(player.currentTime());
+      // console.log(document.querySelector('.vcp-clarityswitcher').innerHTML())
       console.log("Video found the playback position it was looking for.");
     });
     // console.log(TcPlayer);

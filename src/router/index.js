@@ -32,7 +32,23 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import( /* webpackChunkName: "about" */ '../views/video/play.vue')
-  }
+  },
+  {
+    path: '/play2',
+    name: 'play2',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import( /* webpackChunkName: "about" */ '../views/video/play2.vue')
+  },
+  {
+    path: '/play3',
+    name: 'play3',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import( /* webpackChunkName: "about" */ '../views/video/play3.vue')
+  },
 ]
 
 const router = new VueRouter({

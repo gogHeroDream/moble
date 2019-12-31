@@ -1,20 +1,171 @@
 @import "./normalize.scss";
 /** 基础公共样式 **/
+/* CSS Document */
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  font-family: MicrosoftYaHei;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  list-style: none;
+  outline-style: none;
+  /*FF*/
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none;
+
+
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  bblr: expression(this.onFocus=this.blur());
+  /*IE*/
+  outline-style: none;
+  /*FF*/
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// input,
+// select {
+//   vertical-align: middle;
+// }
+
+/*css为clearfix，清除浮动   这里移动端不用往上兼容*/
+/*
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+.clearfix:after {
+  clear: both;
+}
+*/
+.clearfix {
+  *zoom: 1;
+  /*IE/7/6*/
+}
 *{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color:transparent;
 }
-input,img,textarea {
+input,
+img,
+textarea,
+select {
   vertical-align: middle;
   border:0;
 }
 body,p,ul,ol,li,dl,dt,dd,form,h1,h2,h3,h4,h5,h6,input{
-  margin:0;
-  padding:0;
-  list-style:none;
-  outline-style: none;
+  // margin:0;
+  // padding:0;
+  // list-style:none;
+  // outline-style: none;
   -webkit-text-size-adjust: 100%!important;
 }
 i{
@@ -71,36 +222,6 @@ body{
 }
 a:hover,a:visited,a:active {
   text-decoration: none;
-}
-
-.error-info {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  -moz-transform: translate(-50%,-50%);
-  z-index: 15;
-  width: 40%;
-  height: 100px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #fff;
-  background: #4c4c4c;
-  opacity: 0.9;
-  border-radius: 10px;
-  display: none;
-}
-.error-info div {
-  height: 100px;
-  width: 40%;
-  text-align: center;
-  vertical-align: middle;
-  display: table-cell;
-}
-.createAlert{
-  -webkit-animation: maskHide 1s ease forwards 1.5s;
-  -o-animation: maskHide 1s ease forwards 1.5s;
-  animation: maskHide 1s ease forwards 1.5s;
 }
 @keyframes maskHide {
   0%{
