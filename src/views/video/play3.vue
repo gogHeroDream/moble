@@ -80,14 +80,14 @@ export default {
 
           player.updateSrc([
             {
-              // src:"https://861.cdn-vod.huaweicloud.com/asset/6718ae888e4a0349b4501f859df4acd2/play_video/69a36eb618d7e55200f77fa50b18d34f.m3u8",
-              src: _this.src1,
+              src:"https://861.cdn-vod.huaweicloud.com/asset/6718ae888e4a0349b4501f859df4acd2/play_video/69a36eb618d7e55200f77fa50b18d34f.m3u8",
+              // src: _this.src1,
               type: "video/mp4",
               label: "原画"
             },
             {
-              // src:"https://861.cdn-vod.huaweicloud.com/asset/6718ae888e4a0349b4501f859df4acd2/play_video/69a36eb618d7e55200f77fa50b18d34f.m3u8",
-              src: _this.src2,
+              src:"https://861.cdn-vod.huaweicloud.com/asset/6718ae888e4a0349b4501f859df4acd2/play_video/69a36eb618d7e55200f77fa50b18d34f.m3u8",
+              // src: _this.src2,
               type: "video/mp4",
               label: "超清"
             }
@@ -97,17 +97,19 @@ export default {
           // console.log(player);
           let rate = 0;
           let nowTime = 0;
-          player.on("timeupdate", function() {
-            rate = parseInt(player.currentTime())||0;
-            if (rate-nowTime>1) {
-               player.currentTime(nowTime)
-            } else {
-              nowTime = rate
-            }
-            //  const num = parseInt(rate)||0
-            // console.log(player.currentTime())
-          });
+          // player.on("timeupdate", function() {
+          //   rate = parseInt(player.currentTime())||0;
+          //   if (rate-nowTime>1) {
+          //      player.currentTime(nowTime)
+          //   } else {
+          //     nowTime = rate
+          //   }
+          //   //  const num = parseInt(rate)||0
+          //   // console.log(player.currentTime())
+          // });
           const playBtn = document.querySelector("video");
+          playBtn.setAttribute("playsinline",true)
+          playBtn.setAttribute("webkit-playsinlinee",true)
           // console.log(playBtn)
           playBtn.addEventListener("seeked", function(e) {
             // console.log(123)

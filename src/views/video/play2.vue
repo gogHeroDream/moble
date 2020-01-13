@@ -1,10 +1,9 @@
 <template>
   <div class="play">
     <h5>播放器测试几个字啊呀一二三四五六七八九十</h5>
-    <div class="prism-player" id="J_prismPlayer"></div>
-    <!-- <div class="video-div">
-      <div id="id_test_video" style="width:100%; height:auto;"></div>
-    </div> -->
+    <div class="video-div">
+      <div class="prism-player" id="J_prismPlayer"></div>
+    </div>
   </div>
 </template>
 
@@ -31,13 +30,13 @@ export default {
         autoplay: true, //是否自动播放
         playsinline: true, //H5是否内置播放
         useH5Prism: true, //强制H5播放器
-        isLive: true, //是不是直播
+        // isLive: true, //是不是直播
         preload: true, //播放器自动加载
         snapshot: true, //falsh启用截图
-        // width: "100%",
-        // height: "100%",
+        width: "100%",
+        height: "100%",
         x5_type: 'h5',
-        x5_fullscreen: true,
+        // x5_fullscreen: true,
         x5_video_position:'center',
         x5_orientation: 'portraint',
         controlBarVisibility: "always", //控制面板的实现 ‘click’ 点击出现、‘hover’ 浮动出现、‘always’ 一直在
@@ -45,6 +44,9 @@ export default {
       },
       function(player) {
         player.play();
+        player.on('completeSeek', function() {
+          alert(player.getCurrentTime())
+        })
         console.log("播放器创建了。");
       }
     );
@@ -64,8 +66,9 @@ $q: 75;
 .video-div {
   width: 10rem;
   height: 422rem / $q;
-  #id_test_video {
+  #id_test_video,#J_prismPlayer {
     height: 100%;
+    overflow: hidden;
   }
 }
 </style>

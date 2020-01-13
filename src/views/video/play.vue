@@ -34,9 +34,9 @@ export default {
         m3u8_sd: this.src3,
         // autoplay: true, //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
         poster: { style: "cover", src: "/img/liangwei.jpg" },
-        // live: true,
+        live: true,
         x5_player: true,
-        // x5_type: "h5",
+        x5_type: "h5",
         x5_fullscreen: true,
         x5_orientation: 2,
         volume: 0.6,
